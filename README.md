@@ -1,15 +1,12 @@
-# stabilizer_practice
-Empirical companion to Yilmaz &amp; Çene (2026, Mathematics). SVT applied to CFA/SEM: 270K simulation + empirical validation. N=1,729, 10 moderators, 14 supplementary sections.
-
 # Stabilizer Variables in Practice: Applying the SVT to Multi-Group Structural Equation Models
 
-[![DOI](https://img.shields.io/badge/DOI-10.xxxx%2Fxxxxx-blue)](https://doi.org/10.xxxx/xxxxx)
+[![Simulation Data](https://img.shields.io/badge/Simulation%20Data-Figshare-blue)](https://doi.org/10.6084/m9.figshare.31990182)
 [![Theory Paper](https://img.shields.io/badge/Theory%20Paper-Mathematics%2014(6)%2C%201064-green)](https://doi.org/10.3390/math14061064)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
 
-This repository contains the data, R code, and supplementary materials for the empirical companion paper to [Yilmaz & Çene (2026)](https://doi.org/10.3390/math14061064). While the theory paper established the mathematical foundations and regression-based Monte Carlo validation of the Stabilizer Variable Test (SVT), this companion paper applies the SVT within a confirmatory factor analysis / structural equation modeling (CFA/SEM) framework using empirical data.
+This repository contains the analysis code and supplementary materials for the empirical companion paper to [Yilmaz & Çene (2026)](https://doi.org/10.3390/math14061064). While the theory paper established the mathematical foundations and regression-based Monte Carlo validation of the Stabilizer Variable Test (SVT), this companion paper applies the SVT within a confirmatory factor analysis / structural equation modeling (CFA/SEM) framework using empirical data.
 
 **Key finding:** Biological rhythm regularity (BRIAN) functions as a Type B (directional alignment) stabilizer variable for the chronotype–physical activity path, reducing cross-group parameter heterogeneity by 82.3% (CV: 175.8% → 31.1%) across 10 demographic moderators.
 
@@ -59,31 +56,6 @@ The empirical application follows a five-stage validation protocol:
 │   ├── 08_robustness.R              # Comprehensive robustness (6 dimensions, ~3.6 hrs)
 │   └── export_csv_for_python.R      # RDS → CSV for Python figures
 │
-├── Datasets/
-│   ├── analizlik2.xlsx              # Full dataset (N = 3,072)
-│   ├── analizliksonAVE.xlsx         # AVE-optimized dataset (N = 1,729, AVE ≥ 0.50)
-│   ├── analizlik_MAX_AVE.xlsx       # Maximum AVE dataset (N = 1,012, AVE ≈ 0.60)
-│   ├── AVE_trajectory_detailedCORRECTED.xlsx  # Phase 1 removal trajectory
-│   └── AVE_trajectory_MAX.xlsx      # Phase 2 removal trajectory
-│
-├── RDS/                             # R binary results (intermediate)
-│   ├── SVT_results_adaptive.rds
-│   ├── SVT_negative_controls.rds
-│   ├── C2_structural_independence.rds
-│   ├── AVE_trajectory_SVT.rds
-│   ├── TypeI_TypeII_error.rds
-│   ├── item_level_analysis.rds
-│   ├── MI_spectrum_analysis.rds
-│   └── robustness_analysis.rds
-│
-├── Outputs/                         # CSV exports for reproducibility
-│   ├── SVT_summary_adaptive.csv
-│   ├── neg_ctrl_comparison.csv
-│   ├── AVE_trajectory_summary.csv
-│   ├── TypeI_h0_distributions.csv
-│   ├── TypeI_h1_distributions.csv
-│   └── [additional CSVs]
-│
 ├── Figures/
 │   ├── Figure1_stabilizer_mechanism.pdf
 │   ├── Figure2_measurement_quality.pdf
@@ -92,12 +64,15 @@ The empirical application follows a five-stage validation protocol:
 │
 └── Supplementary_Material.docx      # Complete S1–S14 documentation
 ```
-> **Note:** `Datasets/` and `RDS/` directories contain large files hosted on 
-> [Figshare](https://doi.org/10.6084/m9.figshare.31990182). Clone the repository 
-> and download these separately to reproduce the analyses.
 
+## Data Availability
+
+The empirical datasets contain sensitive health information (sleep quality, BMI, chronic disease status, alcohol use) and are available from the corresponding author upon reasonable request, subject to ethics committee approval. The CFA-based Monte Carlo simulation results (270,000 SVT applications, fully synthetic data) are deposited on [Figshare](https://doi.org/10.6084/m9.figshare.31990182). To reproduce the empirical analyses, obtain the datasets from the corresponding author, place them in a `Datasets/` directory, and run the scripts in order (`00` through `08`).
+
+## Key Results
 
 ### SVT Decision
+
 | Metric | Value |
 |---|---|
 | Decision | **Stabilizer** |
@@ -112,12 +87,14 @@ The empirical application follows a five-stage validation protocol:
 | MI satisfied | 9/10 |
 
 ### Error Rates (Empirical)
+
 | | Dual-Criterion | Bradley |
 |---|---|---|
 | Type I | 4.3% | PASS (within [2.5%, 7.5%]) |
 | Power | 78.8% | Marginal (target: 80%) |
 
 ### Cross-Validation with Simulation
+
 | Metric | Simulation (S6, M10) | Empirical (S11) |
 |---|---|---|
 | Type I | 0.046 | 0.043 |
@@ -146,13 +123,13 @@ The empirical application follows a five-stage validation protocol:
 ## Reproducibility
 
 1. Clone this repository
-2. Place datasets in `Datasets/`
+2. Obtain datasets from the corresponding author and place in `Datasets/`
 3. Run scripts in order: `00` through `08`
 4. Scripts `01`–`08` each save results to `RDS/` and `Outputs/`
 5. Run `export_csv_for_python.R` to generate CSVs for Python figures
 6. Figure scripts generate publication-quality PNG (600 DPI) and PDF outputs
 
-**Note:** The CFA simulation (`00_CFA_simulation.R`) requires approximately 374 hours on 14 cores. Pre-computed results are available in the `RDS/` directory and on Figshare.
+**Note:** The CFA simulation (`00_CFA_simulation.R`) requires approximately 374 hours on 14 cores. Pre-computed simulation results are available on [Figshare](https://doi.org/10.6084/m9.figshare.31990182).
 
 ## Citation
 
@@ -186,6 +163,7 @@ The empirical application follows a five-stage validation protocol:
 - **Theory Paper:** [Yilmaz & Çene (2026), *Mathematics*, 14(6), 1064](https://doi.org/10.3390/math14061064)
 - **Theory Paper Repository:** [GitHub](https://github.com/sy142/stabilizer-variable-simulations)
 - **Theory Paper Data:** [Figshare](https://doi.org/10.6084/m9.figshare.30731633)
+- **Simulation Data (this study):** [Figshare](https://doi.org/10.6084/m9.figshare.31990182)
 
 ## License
 
