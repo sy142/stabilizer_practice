@@ -17,7 +17,7 @@ This repository contains the data, R code, and supplementary materials for the e
 
 | Component | Details |
 |---|---|
-| Sample | N = 1,729 Turkish adult people (optimized from N = 3,072 via AVE trajectory) |
+| Sample | N = 1,729 Turkish adults (optimized from N = 3,072 via AVE trajectory) |
 | Predictor | Chronotype (MEQ, 10-item latent factor, 5 error covariances) |
 | Outcome | Physical activity (YJIPAQ, Yeo-Johnson transformed IPAQ) |
 | Stabilizer | Biological Rhythms (BRIAN total score) |
@@ -92,8 +92,10 @@ The empirical application follows a five-stage validation protocol:
 │
 └── Supplementary_Material.docx      # Complete S1–S14 documentation
 ```
+> **Note:** `Datasets/` and `RDS/` directories contain large files hosted on 
+> [Figshare](https://doi.org/10.6084/m9.figshare.xxx). Clone the repository 
+> and download these separately to reproduce the analyses.
 
-## Key Results
 
 ### SVT Decision
 | Metric | Value |
@@ -182,8 +184,8 @@ The empirical application follows a five-stage validation protocol:
 ## Related
 
 - **Theory Paper:** [Yilmaz & Çene (2026), *Mathematics*, 14(6), 1064](https://doi.org/10.3390/math14061064)
-- **Theory Paper Repository:** [GitHub](https://github.com/xxx/stabilizer-variable-test)
-- **Theory Paper Data:** [Figshare](https://doi.org/10.6084/m9.figshare.xxx)
+- **Theory Paper Repository:** [GitHub](https://github.com/sy142/stabilizer-variable-simulations)
+- **Theory Paper Data:** [Figshare](https://doi.org/10.6084/m9.figshare.30731633)
 
 ## License
 
