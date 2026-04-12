@@ -47,3 +47,23 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# ========== Project-specific ==========
+
+# Large binary results (hosted on Figshare)
+RDS/*.rds
+*.rds
+
+# Excel datasets (hosted on Figshare)
+Datasets/*.xlsx
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Office temporary files
+~$*
+*.tmp
+
+# Word backup files
+*.docx#
