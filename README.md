@@ -6,7 +6,7 @@
 
 ## Overview
 
-This repository contains the analysis code and supplementary materials for the empirical companion paper to [Yilmaz & Çene (2026)](https://doi.org/10.3390/math14061064). While the theory paper established the mathematical foundations and regression-based Monte Carlo validation of the Stabilizer Variable Test (SVT), this companion paper applies the SVT within a confirmatory factor analysis / structural equation modeling (CFA/SEM) framework using empirical data.
+This repository contains the analysis code for the empirical companion paper to [Yilmaz & Çene (2026)](https://doi.org/10.3390/math14061064). While the theory paper established the mathematical foundations and regression-based Monte Carlo validation of the Stabilizer Variable Test (SVT), this companion paper applies the SVT within a confirmatory factor analysis / structural equation modeling (CFA/SEM) framework using empirical data.
 
 **Key finding:** Biological rhythm regularity (BRIAN) functions as a Type B (directional alignment) stabilizer variable for the chronotype–physical activity path, reducing cross-group parameter heterogeneity by 82.3% (CV: 175.8% → 31.1%) across 10 demographic moderators.
 
@@ -44,25 +44,15 @@ The empirical application follows a five-stage validation protocol:
 ## Repository Structure
 
 ```
-├── Code/
-│   ├── 00_CFA_simulation.R          # CFA-based Monte Carlo (270K SVT runs, ~374 hrs)
-│   ├── 01_SVT_Empirical.R           # Main SVT analysis
-│   ├── 02_SVT_negative_controls.R   # Comparative stabilizer analysis
-│   ├── 03_C2_structural_independence.R  # C2 verification (OLS, SEM, TOST, per-group)
-│   ├── 04_AVE_trajectory.R          # Full SVT at every AVE step (~6 hrs)
-│   ├── 05_TypeI_TypeII_error.R      # Permutation/bootstrap error analysis (~4 hrs)
-│   ├── 06_item_level_analysis.R     # Leave-one-out item analysis
-│   ├── 07_MI_spectrum_analysis.R    # MI severity–stabilization relationship
-│   ├── 08_robustness.R              # Comprehensive robustness (6 dimensions, ~3.6 hrs)
-│   └── export_csv_for_python.R      # RDS → CSV for Python figures
-│
-├── Figures/
-│   ├── Figure1_stabilizer_mechanism.pdf
-│   ├── Figure2_measurement_quality.pdf
-│   ├── Figure3_robustness_landscape.pdf
-│   └── FigureS1–S9 (supplementary)
-│
-└── Supplementary_Material.docx      # Complete S1–S14 documentation
+├── 00_CFA_simulation.R              # CFA-based Monte Carlo (270K SVT runs, ~374 hrs)
+├── 01_SVT_Empirical.R               # Main SVT analysis
+├── 02_SVT_negative_controls.R       # Comparative stabilizer analysis
+├── 03_C2_structural_independence.R   # C2 verification (OLS, SEM, TOST, per-group)
+├── 04_AVE_trajectory.R              # Full SVT at every AVE step (~6 hrs)
+├── 05_TypeI_TypeII_error.R          # Permutation/bootstrap error analysis (~4 hrs)
+├── 06_item_level_analysis.R         # Leave-one-out item analysis
+├── 07_MI_spectrum_analysis.R        # MI severity–stabilization relationship
+└── 08_robustness.R                  # Comprehensive robustness (6 dimensions, ~3.6 hrs)
 ```
 
 ## Data Availability
@@ -117,17 +107,14 @@ The empirical datasets contain sensitive health information (sleep quality, BMI,
 - **boot** (bootstrap inference)
 - **foreach / doParallel** (parallel computation)
 - **readxl, dplyr, stringr** (data management)
-- **ggplot2, ggrepel, gridExtra** (R figures)
-- **Python 3.11.15** with matplotlib, seaborn, pandas (publication figures)
+- **ggplot2, ggrepel, gridExtra** (visualization)
 
 ## Reproducibility
 
 1. Clone this repository
 2. Obtain datasets from the corresponding author and place in `Datasets/`
 3. Run scripts in order: `00` through `08`
-4. Scripts `01`–`08` each save results to `RDS/` and `Outputs/`
-5. Run `export_csv_for_python.R` to generate CSVs for Python figures
-6. Figure scripts generate publication-quality PNG (600 DPI) and PDF outputs
+4. Each script saves results to `RDS/` and `Outputs/` directories
 
 **Note:** The CFA simulation (`00_CFA_simulation.R`) requires approximately 374 hours on 14 cores. Pre-computed simulation results are available on [Figshare](https://doi.org/10.6084/m9.figshare.31990182).
 
