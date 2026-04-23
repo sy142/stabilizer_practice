@@ -1,60 +1,3 @@
-# Stabilizer Variables in Practice: Applying the SVT to Multi-Group Structural Equation Models
-
-[![Simulation Data](https://img.shields.io/badge/Simulation%20Data-Figshare-blue)](https://doi.org/10.6084/m9.figshare.31990182)
-[![Theory Paper](https://img.shields.io/badge/Theory%20Paper-Mathematics%2014(6)%2C%201064-green)](https://doi.org/10.3390/math14061064)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-## Overview
-
-This repository contains the analysis code for the empirical companion paper to [Yilmaz & Çene (2026)](https://doi.org/10.3390/math14061064). While the theory paper established the mathematical foundations and regression-based Monte Carlo validation of the Stabilizer Variable Test (SVT), this companion paper applies the SVT within a confirmatory factor analysis / structural equation modeling (CFA/SEM) framework using empirical data.
-
-**Key finding:** Biological rhythm regularity (BRIAN) functions as a Type B (directional alignment) stabilizer variable for the chronotype–physical activity path, reducing cross-group parameter heterogeneity by 82.3% (CV: 175.8% → 31.1%) across 10 demographic moderators.
-
-## Study Design
-
-| Component | Details |
-|---|---|
-| Sample | N = 1,729 Turkish adults (optimized from N = 3,072 via AVE trajectory) |
-| Predictor | Chronotype (MEQ, 10-item latent factor, 5 error covariances) |
-| Outcome | Physical activity (YJIPAQ, Yeo-Johnson transformed IPAQ) |
-| Stabilizer | Biological Rhythms (BRIAN total score) |
-| Moderators | 10 demographic variables (age, gender, education, marital status, income, BMI, smoking, alcohol, chronic disease, medical nutrition therapy) |
-| Estimator | MLR with FIML for missing data (lavaan) |
-
-## Validation Framework
-
-The empirical application follows a five-stage validation protocol:
-
-1. **CFA-Based Monte Carlo Simulation** (S6): 270,000 SVT applications across 540 conditions validating Type I error (mean = 0.046) and power (mean = 0.787) under latent variable estimation
-2. **Primary SVT Analysis** (S7): BRIAN classified as stabilizer (Δℓ = 1.629, d = 0.981, p_boot = 0.0009, p_binom = 0.011)
-3. **Comparative Negative Controls** (S8): PSQI and KIDMED tested as alternative candidates; dual-criterion alone insufficient for discrimination → C1/C2 verification required
-4. **Condition Verification** (S9, S13): C1 dose-response confirmed (r = +0.405); C2 approximate (β = 0.12, within Phase 2D safe zone)
-5. **Sensitivity Analyses** (S10–S14): AVE trajectory (2,061 steps), empirical error rates (Type I = 4.3%, power = 78.8%), item-level LOO (10/10 robust), robustness (6/6 dimensions robust)
-
-## Cumulative Validation
-
-| Source | Replications | Framework |
-|---|---|---|
-| Theory paper (Phases 0–3) | 949,100 | Regression-based |
-| CFA simulation (S6) | 270,000 | CFA/SEM |
-| AVE trajectory (S10) | 2,061 | Empirical CFA/SEM |
-| Type I/Power (S11) | 2,000 | Empirical permutation/bootstrap |
-| **Total** | **1,223,161** | **Both frameworks** |
-
-## Repository Structure
-
-```
-├── 00_CFA_simulation.R              # CFA-based Monte Carlo (270K SVT runs, ~374 hrs)
-├── 01_SVT_Empirical.R               # Main SVT analysis
-├── 02_SVT_negative_controls.R       # Comparative stabilizer analysis
-├── 03_C2_structural_independence.R   # C2 verification (OLS, SEM, TOST, per-group)
-├── 04_AVE_trajectory.R              # Full SVT at every AVE step (~6 hrs)
-├── 05_TypeI_TypeII_error.R          # Permutation/bootstrap error analysis (~4 hrs)
-├── 06_item_level_analysis.R         # Leave-one-out item analysis
-├── 07_MI_spectrum_analysis.R        # MI severity–stabilization relationship
-└── 08_robustness.R                  # Comprehensive robustness (6 dimensions, ~3.6 hrs)
-```
-
 ## Data Availability
 
 The empirical datasets contain sensitive health information (sleep quality, BMI, chronic disease status, alcohol use) and are available from the corresponding author upon reasonable request, subject to ethics committee approval. The CFA-based Monte Carlo simulation results (270,000 SVT applications, fully synthetic data) are deposited on [Figshare](https://doi.org/10.6084/m9.figshare.31990182). To reproduce the empirical analyses, obtain the datasets from the corresponding author, place them in a `Datasets/` directory, and run the scripts in order (`00` through `08`).
@@ -122,11 +65,11 @@ The empirical datasets contain sensitive health information (sleep quality, BMI,
 
 ```bibtex
 @article{stabilizer_practice,
-  title={Stabilizer Variables in Practice: Applying the {SVT} to Multi-Group Structural Equation Models},
+  title={Absorbing Measurement Artifacts in Multi-Group {SEM}: Simulation Evidence and an Empirical Application of the Stabilizer Variable Test},
   author={Yilmaz, Salim and {\c{C}}ene, Erhan},
-  journal={Structural Equation Modeling: A Multidisciplinary Journal},
+  journal={Multivariate Behavioral Research},
   year={2026},
-  note={Submitted}
+  note={Under review}
 }
 ```
 
