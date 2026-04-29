@@ -120,7 +120,7 @@ The empirical datasets contain sensitive health information (sleep quality, BMI,
 ```bibtex
 @article{stabilizer_practice,
   title={Absorbing Measurement Artifacts in Multi-Group {SEM}: Simulation Evidence and an Empirical Application of the Stabilizer Variable Test},
-  author={Yilmaz, Salim and {\c{C}}ene, Erhan},
+  author=ANONYMIZED,
   journal={Multivariate Behavioral Research},
   year={2026},
   note={Under review}
